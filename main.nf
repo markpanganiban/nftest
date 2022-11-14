@@ -1,6 +1,10 @@
 nextflow.enable.dsl=2
+process.container = 'ubuntu'
+params.read1 = 's3://nf-nvirginia/R{1,2}.fastq.gz'
+params.outidr = 's3://dovetailtroubleshooting/'
 
 process CountReads {
+  debug true
 
   input:
   tuple val(sample_id), path(reads)

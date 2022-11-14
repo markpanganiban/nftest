@@ -1,7 +1,5 @@
 #!/usr/bin/env nextflow
 
-params.outdir = "s3://fusionfs/"
-
 process CountReads {
 
   input:

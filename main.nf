@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-params.outdir = "s3://dovetailtroubleshooting/cstest/"
+params.outdir = "s3://fusionfs/"
 
 process CountReads {
 

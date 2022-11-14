@@ -1,17 +1,24 @@
 #!/usr/bin/env nextflow
-nextflow.enable.dsl=2 
 
-process sayHello {
-  input: 
-    val x
+params.outdir = "s3://dovetailtroubleshooting/cstest/"
+
+process CountReads {
+
+  input:
+  tuple val(sample_id), path(reads)
+
   output:
-    stdout
+  path("*.txt")
+
   script:
-    """
-    echo '$x world!'
-    """
+  """
+  zcat ${reads[0]} | wc -l > readcount1.txt
+  zcat ${reads[1]} | wc -l > readcount2.txt
+  """
 }
 
 workflow {
-  Channel.of('Bonjour') | sayHello | view
+read_pairs_ch = Channel.fromFilePairs(params.read1.replace("_R1", "{_R1,_R2}"))
+counts_ch = CountReads(read_pairs_ch)
+counts_ch.view()
 }

@@ -9,8 +9,8 @@ process sayHello {
   script:
     """
     echo '$x world!'
-    aws s3 cp s3://fusionfs/result/timeline_aws_s3_cp.html ./
-    aws s3 cp s3://dovetailtroubleshooting/cstest/sample_60M.txt ./
+    cp s3://fusionfs/result/timeline_aws_s3_cp.html ./
+    cp s3://dovetailtroubleshooting/cstest/sample_60M.txt ./
     """
 }
 

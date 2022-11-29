@@ -8,6 +8,7 @@ process sayHello {
     stdout
   script:
     """
+    echo 'Username is: $workflow.userName'
     echo '$x world!'
     """
 }

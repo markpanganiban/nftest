@@ -4,12 +4,11 @@ params.email = 'mark.panganiban@seqera.io'
 
 process someTask {
   secret 'FOO'
-  secret 'BAR'
   output: 
      stdout 
   script:
   '''
-    echo "Secrets phrase: $FOO $BAR"
+    echo "Secrets phrase: $FOO"
   '''
 }
 

@@ -8,9 +8,11 @@ process scriptTask {
 
     script:  
     """
-    [ -z $workflow.revision ] && workflow.revision = $workflow.commitId
+    rev = $workflow.revision
+    [ -z $workflow.revision ] && rev = $workflow.commitId
     echo " Version		: $workflow.revision"
     echo " CommitId         : $workflow.commitId"
+    echo " VER          : $ver"
     """
 }
 

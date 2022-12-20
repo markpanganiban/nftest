@@ -25,5 +25,6 @@ process execTask {
 }
 
 workflow {
-  scriptTask | execTask | view 
+  scriptTask() | view
+  execTask() | view
 }

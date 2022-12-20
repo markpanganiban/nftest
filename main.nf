@@ -10,6 +10,7 @@ process scriptTask {
     echo "SCRIPT VERSION"
     echo "SCRIPT Pipeline	: $workflow.manifest.version"
     echo "SCRIPT Version		: $workflow.revision"
+    echo "SCRIPT Commit         : $workflow.commitId"
     """
 }
 
@@ -20,6 +21,7 @@ process execTask {
     println "EXEC VERSION"
     println "EXEC Pipeline: $workflow.manifest.version"
     println "EXEC VERSION: $workflow.revision"
+    println "EXEC COMMITID: $workflow.commitId"
 }
 
 workflow {

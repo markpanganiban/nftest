@@ -7,10 +7,9 @@ process scriptTask {
 
     script:  
     """
-    echo "I'm sleeping!"
-    echo "Container	: $workflow.container"
-    echo "Pipeline	: $workflow.manifest.version"
-    echo "Version		: $workflow.revision"
+    echo "SCRIPT VERSION"
+    echo "SCRIPT Pipeline	: $workflow.manifest.version"
+    echo "SCRIPT Version		: $workflow.revision"
     """
 }
 
@@ -18,10 +17,9 @@ process execTask {
     output:
       stdout
     exec:
-    println "Project : $workflow.projectDir"
-    println "Git info: $workflow.repository - $workflow.revision [$workflow.commitId]"
-    println "Cmd line: $workflow.commandLine"
-    println "Manifest's pipeline version: $workflow.manifest.version"
+    println "EXEC VERSION"
+    println "EXEC Pipeline: $workflow.manifest.version"
+    println "EXEC VERSION: $workflow.revision"
 }
 
 workflow {

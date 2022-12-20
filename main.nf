@@ -2,14 +2,18 @@
 nextflow.enable.dsl=2
 
 process scriptTask {
-    var rev
+    var ver
+    var commid
     output:
       stdout
 
     script:  
     """
-    echo " Version		: \$\{workflow.revision:=workflow.commitId}"
-    echo " CommitId         : $workflow.commitId"
+    commid=$workflow.commitId
+    ver=${workflow.revision:=commid}
+    echo " Workflow Version		: $workflow.version"
+    echo " Workflow CommitId         : $workflow.commitId"
+    echo " VER Variable         : $ver
     """
 }
 

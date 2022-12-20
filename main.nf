@@ -7,8 +7,6 @@ process scriptTask {
 
     script:  
     """
-    echo "SCRIPT VERSION"
-    echo "SCRIPT Pipeline	: $pipeline_version"
     echo "SCRIPT Version		: $workflow.revision"
     echo "SCRIPT CommitId         : $workflow.commitId"
     """

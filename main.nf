@@ -2,6 +2,7 @@
 nextflow.enable.dsl=2
 
 process scriptTask {
+    var rev
     output:
       stdout
 

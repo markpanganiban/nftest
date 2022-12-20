@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2
 
-process sleep {
+process scriptTask {
     output:
       stdout
 
@@ -14,6 +14,16 @@ process sleep {
     """
 }
 
+process execTask {
+    output:
+      stdout
+    exec:
+    println "Project : $workflow.projectDir"
+    println "Git info: $workflow.repository - $workflow.revision [$workflow.commitId]"
+    println "Cmd line: $workflow.commandLine"
+    println "Manifest's pipeline version: $workflow.manifest.version"
+}
+
 workflow {
-  sleep | view 
+  scriptTask | execTask | view 
 }

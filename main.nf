@@ -7,9 +7,10 @@ process scriptTask {
 
     script:  
     """
-    echo " Version		: \${workflow.revision}"
-    echo " CommitId         : \${workflow.commitId}"
-    
+    rev=${workflow.revision:-workflow.commitId}}
+    echo " Version		: $workflow.revision"
+    echo " CommitId         : $workflow.commitId"
+    echo " Comm or Ver      : $rev"
     """
 }
 

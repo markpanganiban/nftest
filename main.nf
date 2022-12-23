@@ -9,7 +9,6 @@ process sayHello {
   script:
     """
     echo '$x world!'
-    cat /tmp/file.txt
     """
 }
 

@@ -1,7 +1,7 @@
 reports:
 
-   "**/out/MultiQC Report.html"
+   "**/out/MultiQC Report.html":
       display: "MultiQC Report 2 layer"
 
-   "**/out/report.pdf"
+   "**/out/report.pdf":
       display: "Pdf report 2 layer"    

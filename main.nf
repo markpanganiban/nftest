@@ -7,7 +7,7 @@ process firstLayer {
     multiqc1 = Channel.fromPath("${projectDir}/resources/MultiQC Report.html")
     report1 = Channel.fromPath("${projectDir}/resources/report.pdf")
   output:
-    tuple multiqc1, report1
+    tuple path(multiqc1), path(report1)
   script:
     """
     sleep 5;
@@ -21,7 +21,7 @@ process secondLayer {
     multiqc2 = Channel.fromPath("${projectDir}/resources/MultiQC Report.html")
     report2 = Channel.fromPath("${projectDir}/resources/report.pdf")
   output:
-    tuple multiqc2, report2
+    tuple path(multiqc2), path(report2)
   script:
     """
     sleep 5;

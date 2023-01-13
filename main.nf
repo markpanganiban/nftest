@@ -30,6 +30,6 @@ process secondLayer {
 }
 
 workflow {
-  firstLayer |
+  firstLayer
   secondLayer
 }

@@ -4,8 +4,8 @@ nextflow.enable.dsl=2
 process firstLayer {
   publishDir "${params.outdir}/out/", mode: 'copy'
   input: 
-    path(multiqc1) from Channel.value("${projectDir}/resources/MultiQC Report.html")
-    path(report1) from Channel.value("${projectDir}/resources/report.pdf")
+    multiqc1 = Channel.fromPath("${projectDir}/resources/MultiQC Report.html")
+    report1 = Channel.fromPath("${projectDir}/resources/report.pdf")
   output:
     tuple path(multiqc1),
     path(report1) into publish_ch
@@ -19,8 +19,8 @@ process firstLayer {
 process secondLayer {
   publishDir "${params.outdir}/out/2/", mode: 'copy'
   input: 
-    path(multiqc2) from Channel.value("${projectDir}/resources/MultiQC Report.html")
-    path(report2) from Channel.value("${projectDir}/resources/report.pdf")
+    multiqc2 = Channel.fromPath("${projectDir}/resources/MultiQC Report.html")
+    report2 = Channel.fromPath("${projectDir}/resources/report.pdf")
   output:
     tuple path(multiqc2),
     path(report2) into publish_ch

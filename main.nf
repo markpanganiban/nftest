@@ -10,6 +10,8 @@ process sayHello {
     stdout
   script:
     """
+    uname -a
+    cat /etc/os-release
     echo '$x world!'
     """
 }

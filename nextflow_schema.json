@@ -1,89 +1,77 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://raw.githubusercontent.com/./master/nextflow_schema.json",
-  "title": ". pipeline parameters",
-  "description": "",
-  "type": "object",
-  "definitions": {
-    "input_output_options": {
-      "title": "Input/output options",
-      "type": "object",
-      "fa_icon": "fas fa-terminal",
-      "description": "Define where the pipeline should find input data and save output data.",
-      "properties": {
-        "email": {
-          "type": "string",
-          "description": "Email address for completion summary.",
-          "fa_icon": "fas fa-envelope",
-          "help_text": "Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don't need to specify this on the command line for every run.",
-          "pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
-        },
-        "sampleDir": {
-            "type": "string",
-            "default": ""
-        },
-        "inTodo": {
-            "type": "string",
-            "default": ""
-          },
-          "batchID": {
-            "type": "string",
-            "default": ""
-          },
-          "libType": {
-            "type": "string",
-            "default": ""
-          },
-          "configOptions": {
-            "type": "string",
-            "default": ""
-          },
-          "refDir": {
-            "type": "string",
-            "default": "s3://ag2-systems/nextflow/firefly_reference"
-          },
-          "vepDir": {
-            "type": "string",
-            "default": "s3://ag2-systems/nextflow/vep_reference/hg19/vep"
-          },
-          "panelDir": {
-            "type": "string",
-            "default": "s3://ag2-systems/nextflow/panel_reference"
-          },
-          "permanentDir": {
-            "type": "string",
-            "default": "result"
-          },
-          "publish_mode": {
-            "type": "string",
-            "default": "copy"
-          },
-          "pub_dir": {
-            "type": "string",
-            "default": "{ \"${params.permanentDir}/published\" }"
-          },
-          "vcf_dir": {
-            "type": "string",
-            "default": "{ \"${params.permanentDir}/vcf\" }"
-          },
-          "log_dir": {
-            "type": "string",
-            "default": "{ \"${params.permanentDir}/logs\" }"
-          },
-          "fireflyResults": {
-            "type": "string",
-            "default": "{ \"${params.permanentDir}/work\" }"
-          },
-          "vepContainer": {
-            "type": "string",
-            "default": "quay.io/biocontainers/ensembl-vep:101.0--pl526hecda079_1"
-          }
-      }
-    }
-  },
-  "allOf": [
-    {
-        "$ref": "#/definitions/input_output_options"
-    }
-  ]
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/./master/nextflow_schema.json",
+    "title": ". pipeline parameters",
+    "description": "",
+    "type": "object",
+    "definitions": {
+        "input_output_options": {
+            "title": "Input/output options",
+            "type": "object",
+            "fa_icon": "fas fa-terminal",
+            "description": "Define where the pipeline should find input data and save output data.",
+            "properties": {
+                "sampleDir": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Email address for completion summary.",
+                    "fa_icon": "fas fa-envelope",
+                    "help_text": "Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don't need to specify this on the command line for every run.",
+                    "pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
+                },
+                "inTodo": {
+                    "type": "string"
+                },
+                "batchID": {
+                    "type": "string"
+                },
+                "libType": {
+                    "type": "string"
+                },
+                "configOptions": {
+                    "type": "string"
+                },
+                "refDir": {
+                    "type": "string",
+                    "default": "s3://ag2-systems/nextflow/firefly_reference"
+                },
+                "vepDir": {
+                    "type": "string",
+                    "default": "s3://ag2-systems/nextflow/vep_reference/hg19/vep"
+                },
+                "permanentDir": {
+                    "type": "string"
+                },
+                "panelDir": {
+                    "type": "string",
+                    "default": "s3://ag2-systems/nextflow/panel_reference"
+                },
+                "publish_mode": {
+                    "type": "string"
+                },
+                "vcf_dir": {
+                    "type": "string"
+                },
+                "pub_dir": {
+                    "type": "string"
+                },
+                "log_dir": {
+                    "type": "string"
+                },
+                "vepContainer": {
+                    "type": "string"
+                },
+                "fireflyResults": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/input_output_options"
+        }
+    ]
 }

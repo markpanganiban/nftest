@@ -9,9 +9,8 @@ process sayHello {
   script:
     """
     echo '$x world!'
-    sudo lsblk
-    tail -10 /var/log/tower-forge.log
-    df -h .
+    lsblk
+    df -h
     """
 }
 

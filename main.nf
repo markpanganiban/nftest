@@ -9,7 +9,10 @@ process sayHello {
   script:
     """
     uname -a
-    cat /etc/os-release
+    df -h
+    lsblk
+    ls -ld /mnt/efs
+    touch /mnt/efs/mark.txt
     echo '$x world!'
     """
 }

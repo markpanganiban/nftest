@@ -10,11 +10,11 @@ process sayHello {
     """
     uname -a
     df -h
-    lsblk
-    ls -ld /mnt/efs
-    touch /mnt/efs/mark.txt
-    echo 'This text is from EFS Mount!'
-    cat /mnt/efs/nf-4UkRaMg1lAQIuZ.txt
+    echo "This is from S3"
+    /home/ec2-user/miniconda/bin/aws s3 ls s3://nf-nvirginia/mark
+    echo "This is from EFS Mount"
+    touch /mnt/efs/mark3.txt
+    ls -lrt /mnt/efs/
     """
 }
 

@@ -13,7 +13,8 @@ process sayHello {
     lsblk
     ls -ld /mnt/efs
     touch /mnt/efs/mark.txt
-    echo '$x world!'
+    echo 'This text is from EFS Mount!'
+    cat /mnt/efs/nf-4UkRaMg1lAQIuZ.txt
     """
 }
 

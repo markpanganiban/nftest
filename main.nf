@@ -16,7 +16,6 @@ process sayHello {
     mount -v
     touch /mnt/efs/mark3.txt
     ls -lrt /mnt/efs/
-    sleep 100000000
     """
 }
 

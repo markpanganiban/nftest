@@ -13,6 +13,7 @@ process sayHello {
     echo "This is from S3"
     /home/ec2-user/miniconda/bin/aws s3 ls s3://nf-nvirginia/mark
     echo "This is from EFS Mount"
+    mount -v
     touch /mnt/efs/mark3.txt
     ls -lrt /mnt/efs/
     sleep 100000000

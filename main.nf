@@ -8,13 +8,10 @@ process sayHello {
     stdout
   script:
     """
-    uname -a
     df -h
-    echo "This is from S3"
-    /home/ec2-user/miniconda/bin/aws s3 ls s3://nf-nvirginia/mark
     echo "This is from EFS Mount"
     mount -v
-    touch /mnt/efs/mark3.txt
+    touch /mnt/efs/mark-efs-test.txt
     ls -lrt /mnt/efs/
     """
 }

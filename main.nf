@@ -10,9 +10,9 @@ process sayHello {
     """
     df -h
     echo "This is from EFS Mount"
+    ls -lrt /mnt/efs2/
     mount -v
-    touch /mnt/efs/mark-efs-test.txt
-    ls -lrt /mnt/efs/
+    touch /mnt/efs2/mark-efs-test.txt
     """
 }
 

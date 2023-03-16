@@ -1,21 +1,19 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2 
 
-process sayHello {  
+process testEFS {  
   input: 
     val x
   output:
     stdout
   script:
     """
+    echo "This is from EFS Mount nf-launcher container"
     df -h
-    echo "This is from EFS Mount"
-    ls -lrt /mnt/efs/
     mount -v
-    touch /mnt/efs/mark-efs-test.txt
     """
 }
 
 workflow {
-  Channel.of('Hola') | sayHello | view
+  Channel.of('Hola') | testEFS | view
 }

@@ -9,6 +9,7 @@ process testInstanceId {
   script:
     """
     echo "This is the instance id of this task"
+    yum install curl
     curl http://169.254.169.254/latest/meta-data/instance-id
     sleep 1h
     """

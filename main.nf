@@ -1,19 +1,19 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2 
 
-process testEFS {  
+process testInstanceId {  
   input: 
     val x
   output:
     stdout
   script:
     """
-    echo "This is from EFS Mount nf-launcher container"
-    df -h
-    mount -v
+    echo "This is the instance id of this task"
+    curl http://169.254.169.254/latest/meta-data/instance-id
+    sleep 1h
     """
 }
 
 workflow {
-  Channel.of('Hola') | testEFS | view
+  Channel.of('Hola') | testInstanceId | view
 }

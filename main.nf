@@ -8,14 +8,14 @@ process testInstanceId {
     stdout
   script:
     """
-    echo "This is the instance id of this task"
-    wget -q -O - http://169.254.169.254/latest/meta-data/instance-id
-    echo "This is the IP of this task"
-    wget -q -O - http://169.254.169.254/latest/meta-data/public-ipv4
+    instanceId=$(wget -q -O - http://169.254.169.254/latest/meta-data/instance-id)
+    hostNm=$(cat /etc/hostname)
+    echo "This is the instance id of this task: $instanceId"
+    echo "This is the hostname of this task: $hostNm"
     sleep 100000
     """
 }
 
 workflow {
-  Channel.of('Hola') | testInstanceId | view
+  Channel.of('test') | testInstanceId | view
 }

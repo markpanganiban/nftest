@@ -1,19 +1,16 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2 
 
-process testEFS {  
-  input: 
-    val x
+process df {
   output:
-    stdout
+    path "df.txt"
+
   script:
     """
-    echo "This is from EFS Mount nf-launcher container"
-    df -h
-    mount -v
+    df -h > df.txt
     """
 }
 
 workflow {
-  Channel.of('Hola') | testEFS | view
+  df | view
 }

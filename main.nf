@@ -8,7 +8,7 @@ process getSecret {
     script:
     """
     pip3 install boto3
-    aws-secrets.py "${secret_name}" "${region_name}" > secret_file
+    aws-secrets.py $params.secret_name $params.region_name > secret_file
     """
 }
 

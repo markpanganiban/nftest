@@ -1,8 +1,5 @@
 #!/usr/bin/env nextflow
 
-secret_name = "arn:aws:secretsmanager:us-east-1:1234567890:secret:secret-full-arn-here"
-region_name = "region-here"
-
 process getSecret {
     container 'python:3.9.17'
     output:

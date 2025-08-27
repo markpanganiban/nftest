@@ -1,35 +1,26 @@
 #!/usr/bin/env nextflow
-nextflow.enable.dsl=2 
+nextflow.enable.dsl=2
 
-process firstLayer {
-  publishDir "${params.outdir}/out/", mode: 'copy'
+process publishReport {
+  publishDir "${params.outdir}", mode: 'copy'
+  publishDir "${params.outdir2}", mode: 'copy'
   input: 
-    multiqc1 = Channel.fromPath("${projectDir}/resources/MultiQC Report.html")
-    report1 = Channel.fromPath("${projectDir}/resources/report.pdf")
+    path (x)
   output:
-    tuple path(multiqc1), path(report1)
+    stdout
+    path '*'
+
   script:
     """
-    sleep 5;
-    echo "Copying and testing 2 layer for reports"
-    """
-}
-
-process secondLayer {
-  publishDir "${params.outdir}/out/2/", mode: 'copy'
-  input: 
-    multiqc2 = Channel.fromPath("${projectDir}/resources/MultiQC Report.html")
-    report2 = Channel.fromPath("${projectDir}/resources/report.pdf")
-  output:
-    tuple path(multiqc2), path(report2)
-  script:
-    """
-    sleep 5;
-    echo "Copying and testing 2 layer for reports"
+    echo 'File is $x'
+    echo 'Content inside: '
+    df -h
+    env
+    cat $x > published_$x
     """
 }
 
 workflow {
-  firstLayer
-  secondLayer
+   Channel.of(params.file2, params.file3, params.multi, params.file4)
+    | publishReport
 }

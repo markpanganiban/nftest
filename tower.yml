@@ -1,7 +1,15 @@
 reports:
-
-   "**/out/MultiQC Report.html":
-      display: "MultiQC Report 2 layer"
-
-   "**/out/report.pdf":
-      display: "Pdf report 2 layer"    
+  "*report.html":
+    display: "Nextflow execution report"
+  "*timeline-*.html":
+    display: "Nextflow execution timeline"
+  "*trace.txt":
+    display: "Nextflow trace file"
+  "*dag.html":
+    display: "Nextflow workflow diagram"
+  "*.csv":
+    display: "CSV Reports"
+  "*.pdf":
+    display: "PDF Reports"
+  "**/*.txt":
+    display: "TXT Files"

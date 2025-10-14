@@ -14,7 +14,7 @@ process publishReport {
     echo 'File is $x'
     cat $x > published_$x
     sleep 10s
-    exit 1
+    exit 0
     """
 }
 
